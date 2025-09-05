@@ -66,7 +66,7 @@ Result example (face recognition + temperature annotation):
 
 ## Evaluation
 
-Paired RGB and MLX90640 frames were captured indoors (ambient ≈ 24 °C)
+Paired RGB and MLX90640 frames were captured indoors
 
 As the subject moves away, each IR pixel integrates a larger portion of background, so the measured temperature decreases due to spatial averaging: ≈ 32.7 °C at 50 cm → ≈ 29.5 °C at 100 cm → ≈ 25.9 °C at 150 cm. Face-ID stays stable, but variance grows with distance. This illustrates the resolution limit of low-res thermal arrays and motivates recommended operating ranges (~0.6–0.8 m) or higher-resolution optics/compensation when accurate forehead estimation is required.
 
