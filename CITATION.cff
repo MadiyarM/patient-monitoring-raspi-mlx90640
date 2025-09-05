@@ -1,14 +1,14 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "Intelligent Patient Monitoring System with Raspberry Pi, MLX90640 Thermal Sensor, and Pi Camera"
+title: "An Intelligent System for Automated Monitoring and Control of Patient Conditions"
 version: "0.1.0"
-doi: 10.5281/zenodo.1234567   # (если зальёте релиз на Zenodo — получите настоящий DOI)
-date-released: 2025-08-24
+doi: soon
+date-released: soon
 authors:
   - family-names: "Mukanov"
     given-names: "Madiyar"
     affiliation: "Satbayev University, Department of Robotics"
-    orcid: "0000-0002-1234-5678"   # (если есть ORCID — очень желательно указать)
+    orcid: "0009-0004-3340-763X"
 keywords:
   - Raspberry Pi
   - MLX90640
