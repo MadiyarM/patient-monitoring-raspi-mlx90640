@@ -40,7 +40,7 @@ python examples/opencv_thermal_overlay.py
 
 **Physical hardware layout (RPi 4 + MLX90640 + Pi Camera 2 + HDMI IPS).** A **Raspberry Pi 4** provides on-device compute and I/O. The **Pi Camera 2** connects for the RGB stream, the **MLX90640** thermal array is attached on **I²C** (SDA=GPIO2, SCL=GPIO3) and powered at **3.3 V** (do not apply 5 V to the sensor). 
 
-The annotated video is rendered to an **IPS LCD** over HDMI. 
+The video is rendered to an **IPS LCD** over HDMI. 
 
 The system is supplied from a regulated **5 V** Li-ion source (≈5–7 W under load) with a single common ground. 
 
@@ -50,15 +50,9 @@ Physical hardware layout (RPi4 + MLX90640 + Pi Camera 2):
 
 <p align="center"> <img src="docs/figs/fig2_hardware_layout.png" alt="Physical hardware layout" width="82%"/> </p>
 
-## Data Logging (SQLite)
-
-Measurements are stored locally for analysis.
-
-<p align="center"> <img src="docs/figs/fig4_sqlite_table.png" alt="Measurement data stored in SQLite database" width="80%"/> </p>
-
 ## Results
 
-Face recognition + temperature annotation (live overlay).** The RGB stream from Pi Camera 2 provides the face box and identity, while the MLX90640 thermal frame (24×32) is upsampled and registered to the RGB face region; the forehead ROI is used to estimate **Tₘₐₓ** in °C (with emissivity and light EMA smoothing), which is drawn on the frame together with the name and simultaneously recorded to SQLite for later analysis; this is a research demo that reports surface temperature and is **not** a clinical core-temperature measurement.
+The RGB stream from Pi Camera 2 provides the face box and identity. 
 
 Result example (face recognition + temperature annotation):
 
@@ -66,16 +60,25 @@ Result example (face recognition + temperature annotation):
 
 ## Evaluation
 
-Paired RGB and MLX90640 frames were captured indoors
+Paired RGB and MLX90640 frames were captured indoors with ambient temperature 16 °C.
 
-As the subject moves away, each IR pixel integrates a larger portion of background, so the measured temperature decreases due to spatial averaging: ≈ 32.7 °C at 50 cm → ≈ 29.5 °C at 100 cm → ≈ 25.9 °C at 150 cm. Face-ID stays stable, but variance grows with distance. This illustrates the resolution limit of low-res thermal arrays and motivates recommended operating ranges (~0.6–0.8 m) or higher-resolution optics/compensation when accurate forehead estimation is required.
+As the subject moves away, each IR pixel integrates a larger portion of background, so the measured temperature decreases due to spatial averaging: ≈ 32.0 °C at 50 cm → ≈ 29.5 °C at 100 cm → ≈ 25.9 °C at 150 cm. Face-ID stays stable, but variance grows with distance. This illustrates the resolution limit of low-res thermal arrays and motivates recommended operating ranges (~0.6–0.8 m) or higher-resolution optics/compensation when accurate forehead estimation is required.
 
 <p align="center"> <img src="docs/figs/fig5_distances_grid.png" alt="RGB and thermal outputs at varying distances" width="92%"/> </p>
 
-**Ambient conditions (16 °C, 24 °C, 26 °C) and MLX90640 error.** Bars show the mean absolute error of the forehead temperature. As ambient temperature increases, error decreases—≈3.0 °C at 16 °C → ≈2.0 °C at 24 °C → ≈1.0 °C at 26 °C—because colder rooms amplify convective cooling of skin . 
+**Ambient conditions (16 °C, 24 °C, 26 °C) and MLX90640 error.** Bars show the mean absolute error of the forehead temperature. As ambient temperature increases, error decreases—≈3.0 °C at 16 °C → ≈2.0 °C at 24 °C → ≈1.0 °C at 26 °C—because colder rooms amplify convective cooling of skin. 
 
 In practice, operate near room temperature (≈24–26 °C).
 <p align="center"> <img src="docs/figs/fig6_ambient_bars.png" alt="Forehead temperature across ambient conditions" width="70%"/> </p>
+
+## Data Logging (SQLite)
+
+Measurements are stored locally for analysis.
+
+Each accepted reading produces one row with an auto-increment **id**, **username**, the estimated forehead **temperature** in °C, **record_time** timestamp, and an **abnormality_notification** label derived from thresholds (e.g., *Below Normal*, *Normal Range*, *Above Normal / Fever*).
+
+
+<p align="center"> <img src="docs/figs/fig4_sqlite_table.png" alt="Measurement data stored in SQLite database" width="80%"/> </p>
 
 ## Notes
 
