@@ -1,0 +1,19 @@
+name: patient-monitoring
+channels: [conda-forge]
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - opencv
+  - matplotlib
+  - scikit-learn
+  - pip
+  - pip:
+      - picamera2
+      - adafruit-circuitpython-mlx90640
+      - smbus2
+      - onnxruntime
+      - ultralytics
+      - facenet-pytorch
+      - fastapi
+      - uvicorn
