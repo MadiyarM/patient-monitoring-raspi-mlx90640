@@ -52,7 +52,7 @@ Physical hardware layout (RPi4 + MLX90640 + Pi Camera 2):
 
 ## Data Logging (SQLite)
 
-Measurements are stored locally for auditing/analysis.
+Measurements are stored locally for analysis.
 
 <p align="center"> <img src="docs/figs/fig4_sqlite_table.png" alt="Measurement data stored in SQLite database" width="80%"/> </p>
 
@@ -65,12 +65,18 @@ Result example (face recognition + temperature annotation):
 <p align="center"> <img src="docs/figs/fig3_face_temp_result.png" alt="Face recognition and temperature indicating" width="70%"/> </p>
 
 ## Evaluation
-Distance study — RGB & Thermal at 50 cm / 100 cm / 150 cm
+
+Paired RGB and MLX90640 frames were captured indoors (ambient ≈ 24 °C)
+
+As the subject moves away, each IR pixel integrates a larger portion of background, so the measured temperature decreases due to spatial averaging: ≈ 32.7 °C at 50 cm → ≈ 29.5 °C at 100 cm → ≈ 25.9 °C at 150 cm. Face-ID stays stable, but variance grows with distance. This illustrates the resolution limit of low-res thermal arrays and motivates recommended operating ranges (~0.6–0.8 m) or higher-resolution optics/compensation when accurate forehead estimation is required.
+
 <p align="center"> <img src="docs/figs/fig5_distances_grid.png" alt="RGB and thermal outputs at varying distances" width="92%"/> </p>
 
-Ambient conditions — 16 °C, 24 °C, 26 °C
+**Ambient conditions (16 °C, 24 °C, 26 °C) and MLX90640 error.** Bars show the mean absolute error of the forehead temperature. As ambient temperature increases, error decreases—≈3.0 °C at 16 °C → ≈2.0 °C at 24 °C → ≈1.0 °C at 26 °C—because colder rooms amplify convective cooling of skin . 
+
+In practice, operate near room temperature (≈24–26 °C).
 <p align="center"> <img src="docs/figs/fig6_ambient_bars.png" alt="Forehead temperature across ambient conditions" width="70%"/> </p>
 
 ## Notes
 
-If you use it in medical purpose, please be sure that you anonymized all data.
+If you use it in medical purpose, please be sure that you anonymize all data.
