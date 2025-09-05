@@ -1,0 +1,1 @@
+Contactless patient monitoring on Raspberry Pi 4 using MLX90640 (24×32, ±1 °C) and Pi Camera 2 with 90–95% face-ID accuracy; IR–RGB fusion, on-device alerts and SQLite logs; controlled trials at 16 °C / 24 °C / 26 °C.
