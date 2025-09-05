@@ -7,6 +7,9 @@
 - **Face ID** module for per-patient tracking; local logs, CSV export.
 - Runs on **Raspberry Pi 4**, total HW cost **< $130** (BOM pending).
 
+## Paper-aligned docs
+- **Abstract:** `docs/paper/01_abstract.md`  
+
 ## Demo / Media
 - Short demo (to be added): `media/demo.mp4`  
 - Pipeline diagram (to be added): `docs/pipeline.md`
