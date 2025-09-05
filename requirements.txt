@@ -1,0 +1,6 @@
+numpy
+matplotlib
+opencv-python
+adafruit-blinka
+adafruit-circuitpython-mlx90640
+smbus2
