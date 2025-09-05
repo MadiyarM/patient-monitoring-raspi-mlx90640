@@ -1,4 +1,4 @@
-# patient-monitoring-raspi-mlx90640
+# An Intelligent System for Automated Monitoring and Control of Patient Conditions
 
 # Contactless Patient Monitoring (Raspberry Pi 4 + MLX90640 + Pi Camera 2)
 
@@ -15,3 +15,4 @@
 - Pipeline diagram (to be added): `docs/pipeline.md`
 
 ## Quickstart (stub)
+coming soon
