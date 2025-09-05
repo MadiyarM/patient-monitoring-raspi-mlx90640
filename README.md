@@ -16,7 +16,6 @@ All while logging {username, temperature_c, record_time, abnormality_notificatio
 <p align="center">
   <a href="docs/figs/fig1_system_architecture.png">Open full-size figure →</a>
 </p>
----
 
 ## Installation
 
@@ -31,17 +30,21 @@ sudo apt update && sudo apt install -y python3-picamera2
 ```
 ## Demo
 
-# 1) IR-only heatmap viewer (Matplotlib)
+## 1) IR-only heatmap viewer (Matplotlib)
 python examples/matplotlib_thermal_viewer.py
 
-# 2) IR+RGB overlay with blend trackbar (OpenCV)
-python examples/opencv_thermal_overlay.py   # press 'q' to quit
-
-Result example (face recognition + temperature annotation):
-
-<p align="center"> <img src="docs/figs/fig3_face_temp_result.png" alt="Face recognition and temperature indicating" width="70%"/> </p>
+## 2) IR+RGB overlay with blend trackbar (OpenCV)
+python examples/opencv_thermal_overlay.py 
 
 ## Hardware
+
+**Physical hardware layout (RPi 4 + MLX90640 + Pi Camera 2 + HDMI IPS).** A **Raspberry Pi 4** provides on-device compute and I/O. The **Pi Camera 2** connects for the RGB stream, the **MLX90640** thermal array is attached on **I²C** (SDA=GPIO2, SCL=GPIO3) and powered at **3.3 V** (do not apply 5 V to the sensor). 
+
+The annotated video is rendered to an **IPS LCD** over HDMI. 
+
+The system is supplied from a regulated **5 V** Li-ion source (≈5–7 W under load) with a single common ground. 
+
+All processing runs locally, however cloud computing is used when AI is needed to improve the quality of thermal images.
 
 Physical hardware layout (RPi4 + MLX90640 + Pi Camera 2):
 
@@ -53,6 +56,14 @@ Measurements are stored locally for auditing/analysis.
 
 <p align="center"> <img src="docs/figs/fig4_sqlite_table.png" alt="Measurement data stored in SQLite database" width="80%"/> </p>
 
+## Results
+
+Face recognition + temperature annotation (live overlay).** The RGB stream from Pi Camera 2 provides the face box and identity, while the MLX90640 thermal frame (24×32) is upsampled and registered to the RGB face region; the forehead ROI is used to estimate **Tₘₐₓ** in °C (with emissivity and light EMA smoothing), which is drawn on the frame together with the name and simultaneously recorded to SQLite for later analysis; this is a research demo that reports surface temperature and is **not** a clinical core-temperature measurement.
+
+Result example (face recognition + temperature annotation):
+
+<p align="center"> <img src="docs/figs/fig3_face_temp_result.png" alt="Face recognition and temperature indicating" width="70%"/> </p>
+
 ## Evaluation
 Distance study — RGB & Thermal at 50 cm / 100 cm / 150 cm
 <p align="center"> <img src="docs/figs/fig5_distances_grid.png" alt="RGB and thermal outputs at varying distances" width="92%"/> </p>
@@ -60,16 +71,6 @@ Distance study — RGB & Thermal at 50 cm / 100 cm / 150 cm
 Ambient conditions — 16 °C, 24 °C, 26 °C
 <p align="center"> <img src="docs/figs/fig6_ambient_bars.png" alt="Forehead temperature across ambient conditions" width="70%"/> </p>
 
-## Dataset / Docs
-
-We do not ship private data. For documentation:
-
-Save snapshots from the demos into docs/figs/ (press s in the OpenCV window if you add a save hotkey).
-
-Keep small CSV summaries in docs/results/ for plots and tables.
-
 ## Notes
 
-Runs on Raspberry Pi 4 with MLX90640 (24×32 thermal) and Pi Camera 2.
-
-This is not a medical device; anonymize any shared data.
+If you use it in medical purpose, please be sure that you anonymized all data.
