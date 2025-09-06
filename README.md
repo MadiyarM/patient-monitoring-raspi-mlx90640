@@ -1,6 +1,6 @@
 # An Intelligent System for Automated Monitoring and Control of Patient Conditions
 
-[![Presented at AIR 2025](https://img.shields.io/badge/Presented%20at-AIR%202025-blue)](#presentations--venue)
+[![Presented at AIR 2025](https://img.shields.io/badge/Presented%20at-AIR%202025-blue)](#venue)
 
 Real-time **IR–RGB fusion** for contactless temperature screening with **face identification**, on-device logging (**SQLite**), alerts, and compact 3D-printed enclosure. *(Springer publication: **in press, 2025**).*
 
