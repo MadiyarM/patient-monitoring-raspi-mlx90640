@@ -86,6 +86,26 @@ Each accepted reading produces one row with an auto-increment **id**, **username
 
 If you use it in medical purpose, please be sure that you anonymize all data.
 
+## One more thing
+### Thermal Image Enhancement (Optional Research Extension)
+
+We additionally experiment with improving thermal image quality using **unsupervised, step-wise CycleGAN super-resolution**.
+This section is **optional** and does not affect the minimal demos.  
+Reference inspiration: *Thermal Image Super-resolution: A Novel Architecture and Dataset* —
+[PDF](https://refbase.cvc.uab.es/files/RSV2020.pdf).
+
+### pix2pix Training Timeline (Epochs)
+
+We visualize the training progression of the enhancement model (pix2pix) over recent epochs.
+
+<p align="center">
+  <img src="docs/figs/fig7_pix2pix_epochs.webp" alt="pix2pix epochs grid (real_A, fake_B, rec_A, idt_B, real_B, fake_A, rec_B, idt_A)" width="95%">
+</p>
+<p align="center">
+  <a href="docs/figs/fig7_pix2pix_epochs.webp">Open full resolution →</a>
+</p>
+
+
 ## Presentation & Proceedings
 
 <p align="center">
