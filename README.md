@@ -80,6 +80,10 @@ Each accepted reading produces one row with an auto-increment **id**, **username
 
 <p align="center"> <img src="docs/figs/fig4_sqlite_table.png" alt="Measurement data stored in SQLite database" width="80%"/> </p>
 
+## Notes
+
+If you use it in medical purpose, please be sure that you anonymize all data.
+
 ## Presentation & Proceedings
 
 <p align="center">
@@ -93,6 +97,18 @@ Program schedule: [AIR 2025 Program](https://scrs.in/conference/air2025/page/AIR
 **Proceedings.**  
 The after-conference proceedings are planned to be published in the SCOPUS-indexed Springer book series **Lecture Notes in Networks and Systems (LNNS)**. The repository will be updated with the final bibliographic entry and DOI once available.
 
-## Notes
+## Presentations & Venue
 
-If you use it in medical purpose, please be sure that you anonymize all data.
+- **International Conference on AI and Robotics (AIR) 2025**, Nazarbayev University  
+  *Certificate of Presentation* — “An Intelligent System for Automated Monitoring and Control of Patient Conditions”  
+  **Dates:** May 09–11, 2025 • **Organizers:** Center of Excellence in Medical Robotics and Research
+
+<p align="center">
+  <img src="docs/awards/air2025_certificate.webp" alt="Certificate of Presentation — AIR 2025" width="70%">
+</p>
+<p align="center">
+  <a href="docs/awards/air2025_certificate.webp">Open full-size figure →</a>
+</p>
+
+[![Presented at AIR 2025](https://img.shields.io/badge/Presented%20at-AIR%202025-blue)](#presentations--venue)
+
