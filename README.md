@@ -1,6 +1,6 @@
 # An Intelligent System for Automated Monitoring and Control of Patient Conditions
 
-**One-liner.** Real-time **IR–RGB fusion** for contactless temperature screening with **face identification**, on-device logging (**SQLite**), alerts, and compact 3D-printed enclosure. *(Springer publication: **in press, 2025**).*
+Real-time **IR–RGB fusion** for contactless temperature screening with **face identification**, on-device logging (**SQLite**), alerts, and compact 3D-printed enclosure. *(Springer publication: **in press, 2025**).*
 
 ## Highlights
 - Parallel capture: **MLX90640 (IR)** + **Pi Camera 2 (RGB)** → aligned ROI → estimation & thresholds.
@@ -97,7 +97,7 @@ Program schedule: [AIR 2025 Program](https://scrs.in/conference/air2025/page/AIR
 **Proceedings.**  
 The after-conference proceedings are planned to be published in the SCOPUS-indexed Springer book series **Lecture Notes in Networks and Systems (LNNS)**. The repository will be updated with the final bibliographic entry and DOI once available.
 
-## Presentations & Venue
+## Venue
 
 - **International Conference on AI and Robotics (AIR) 2025**, Nazarbayev University  
   *Certificate of Presentation* — “An Intelligent System for Automated Monitoring and Control of Patient Conditions”  
